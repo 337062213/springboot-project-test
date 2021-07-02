@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<bookstore>
+    <book id="1">
+        <name>冰与火之歌</name>
+        <author>乔治马丁</author>
+        <year>2014</year>
+        <price>89</price>
+        <language>English</language>
+    </book>
+    <book id="2">
+        <name>安徒生童话</name>
+        <author>汉斯·克里斯蒂安·安徒生</author>
+        <year>2004</year>
+        <price>77</price>
+        <language>English</language>
+    </book>    
+</bookstore>

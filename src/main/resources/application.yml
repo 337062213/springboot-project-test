@@ -1,0 +1,12 @@
+#    测试接口在线文档 
+# http://localhost:8081/springboot/swagger-ui.html
+swagger:  enabled: true
+  description: 测试接口在线文档
+  host: http://localhost:8081
+  base-package: '**'
+  title: 测试接口在线文档
+server:
+  error:    whitelabel:      enabled: false  context-path: /api
+# 数据库配置
+spring:
+  profiles:    active: dev

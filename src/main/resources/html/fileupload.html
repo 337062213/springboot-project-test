@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>文件上传和下载</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="js/base.js"></script>
+	<script>
+		/*用window.onload调用myfun()*/
+		window.onload=function myfun() {
+			myVar = setInterval(function(){ myTimer() }, 1000);
+		};		
+		let patt1=new RegExp("best");
+		document.write(patt1.exec("The best things in life are free"));
+		var number = Math.round(Math.random()*500 + 500);
+		var myVar = null, promptValue = "";
+		//有取消按钮
+		var confirmValue = confirm("Please confirm whether to continue or quit");
+		if(confirmValue){
+			alert(number);
+			if(number>=750){
+				alert("function");
+				//有取消按钮
+				confirm("Confirm");
+			    //弹出输入框
+				promptValue = prompt("prompt");
+				while("admin"!==promptValue && promptValue!==null){
+					promptValue = prompt("prompt");
+				}
+				myVar = setInterval(
+					function(){ myTimer() }, 1000
+				);
+			}else{
+				alert("arrow");
+				//有取消按钮
+				confirm("Confirm");
+			    //弹出输入框
+				promptValue = prompt("prompt");
+				while("admin"!==promptValue && promptValue!==null){
+				    promptValue = prompt("prompt");
+				}
+				myVar = setInterval(
+					() => { myTimer() }, 1000
+				);
+			}
+		}
+		function myTimer() {
+			var d = new Date();
+			var t = d.toLocaleTimeString();
+			document.getElementById("time").innerHTML = t;
+			document.getElementById("time").style.background= "bisque"; // 改变背景颜色
+		}
+		
+		function pause() {
+			clearInterval(myVar);
+			myVar = null;
+		}
+		function start() {
+			myVar = setInterval(function(){ myTimer() }, 1000);
+		}
+		
+		document.onkeydown=function(event){
+			var e = event || window.event || arguments.callee.caller.arguments[0];
+			if(e && e.keyCode==27){ // 按 Esc 
+				 alert("按 esc");
+			}else if(e && e.keyCode==113){ // 按 F2 
+				 alert("按 f2");
+			}else if(e && e.keyCode==13){ // enter 键
+				 alert("按 Enter");
+			}
+		};
+	</script>
+</head>
+	<body>
+		<p id="writer"></p>
+		<div>
+		<marquee direction="left" scrollamount="3" style="width:550px; height:20px" id="marquee">
+			<a href="#">纤云弄巧，飞星传恨，银汉迢迢暗度。</a>
+			<a href="#">金风玉露一相逢，便胜却、人间无数。</a>
+			<a href="#">柔情似水，佳期如梦。忍顾鹊桥归路！</a>
+			<a href="#">两情若是久长时，又岂在、朝朝暮暮。</a>
+			<a href="#">千重劫，百世难，亘古匆匆，弹指间！</a>
+			<a href="#">不死躯，不灭魂，震古烁今，无人敌！</a>
+			<a href="#">待到阴阳逆乱时，以我魔血染青天！</a>
+		</marquee>
+		</div>
+		<p style="display:inline"><span>显示当前时间:</span><span></span></p><p id="time" style="display:inline;margin-left:10px"></p>
+		<p style="display:inline;margin-left:10px">
+		<button type='button' onclick='pause()'>暂停</button><button type='button' onclick='start()'>开始</button></p>
+		<h2>http://localhost:8081/springboot/file/upload</h2>
+		<form action='http://localhost:8081/springboot/file/upload' method='post' enctype='multipart/form-data'>
+			<input type='file' name='file'>
+			<button type='submit'>上传</button>
+		</form>
+		<h2>http://localhost:8081/springboot/file/batch/upload</h2>
+		<form action='http://localhost:8081/springboot/file/batch/upload' method='post' enctype='multipart/form-data'>
+			上传文件1：<input type="file" name="file"><br/>
+			上传文件2：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		<h2>http://localhost:8081/springboot/file/upload1</h2>
+		<form action='http://localhost:8081/springboot/file/upload1' method='post' enctype='multipart/form-data'>
+			上传文件3：<input type="file" name="file"><br/>
+			上传文件4：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		<div class="login">
+			<div class="login-box" id="login-id">
+				<span class="caption">欢迎您注册网站会员，如果您已有账户，则可就在此<span style="font-style: blue;">登录</span></span>
+				<div class="login-text">
+					用&nbsp;户&nbsp;名：<input id="username" type="text" class="username" onblur="onUserNameBlur(this)"/> <span class="span1">用户名支持数字和字母，位数至少为四位</span><br>
+					设置密码: <input id="password" type="password" class="password" onblur="pwdonblur(this, document.getElementById('passwordss'))"/> <span class="span2">密码支持数字和字母，位数至少为四位</span><br>
+					确认密码: <input id="passwordss" type="password" class="passwordss" onblur="pwdsonblur(this,document.getElementById('password'))"/> <span class="span3">再次输入密码</span>
+					手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：<input type="text" class="tel"  onblur="telonblur(this)"/><span class="span4">请输入11位手机号码</span>
+					邮 &nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" class="email" onblur="emailonblur(this)"/><span class="span5">邮箱后面必须带有@号</span>
+					验&nbsp;证&nbsp;码 : <input type="text" class="yzm"/>  <button class="picyzm">获取验证码</button><span class="span6"></span>
+					<input type="button"  value="立即注册" class="zhuce"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "file.upload.fileDirectory",
+    "type": "java.lang.String",
+    "description": "A description for 'file.upload.fileDirectory'"
+  },
+  {
+    "name": "file.dowmload.fileDirectory",
+    "type": "java.lang.String",
+    "description": "A description for 'file.dowmload.fileDirectory'"
+  },
+  {
+    "name": "isSecret",
+    "type": "java.lang.Boolean",
+    "description": "A description for 'isSecret'"
+  },
+  {
+    "name": "spring.datasource.one",
+    "type": "java.lang.Map",
+    "description": "A description for 'spring.datasource.one'"
+  },
+  {
+    "name": "spring.datasource.two",
+    "type": "java.lang.Map",
+    "description": "A description for 'spring.datasource.two'"
+  },
+  {
+    "name": "spring.datasource.active",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.active'"
+  }
+]}
