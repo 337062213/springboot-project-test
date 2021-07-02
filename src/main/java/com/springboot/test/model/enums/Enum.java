@@ -1,13 +1,8 @@
 package com.springboot.test.model.enums;
 
-public class EnumTest {  
-	
-    public static void main(String[] args) {  
-        forEnum();  
-        useEnumInJava();  
-    }  
+public class Enum {    
   
-    private static void forEnum() {  
+    public static void forEnum() {  
         for (SeasonsEnum simpleEnum : SeasonsEnum.values()) {  
             System.out.println(simpleEnum + "  ordinal  " + simpleEnum.ordinal());  
         }  
@@ -17,7 +12,7 @@ public class EnumTest {
         }  
     }  
   
-    private static void useEnumInJava() {  
+    public static void useEnumInJava() {  
         String typeName = "f5";  
         TYPE type = TYPE.fromTypeName(typeName);  
         if (TYPE.BALANCE.equals(type)) {  
@@ -28,14 +23,14 @@ public class EnumTest {
   
     }  
  
-    private enum SeasonsEnum {  
+    public enum SeasonsEnum {  
         SPRING,  
         SUMMER,  
         AUTUMN,  
         WINTER  
     }  
 
-    private enum TYPE {      	
+    public enum TYPE {      	
         FIREWALL("firewall"),  
         SECRET("secretMac"),  
         BALANCE("f5");    

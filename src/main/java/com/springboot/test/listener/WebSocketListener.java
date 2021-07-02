@@ -14,7 +14,7 @@
  * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个WebSocket服务器端,  注解的值将被用于监听用户连接的终端访问URL地址,客户端可以通过这个URL来连接到WebSocket服务器端
  */
 @ServerEndpoint("/websocket")
-@Component
+@Component(value="WebSocketListener")
 public class WebSocketListener {
  
     /** onlineCount 静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。*/

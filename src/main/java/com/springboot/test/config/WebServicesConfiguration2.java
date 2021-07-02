@@ -1,6 +1,6 @@
  package com.springboot.test.config;
 
- import com.springboot.test.service.BillService;
+ import com.springboot.test.service.IbillService;
  import org.apache.cxf.Bus;
  import org.apache.cxf.bus.spring.SpringBus;
  import org.apache.cxf.jaxws.EndpointImpl;
@@ -17,7 +17,7 @@
     @Autowired
     private Bus bus;
     @Autowired
-    BillService billService;
+    IbillService billService;
   
     /**
      * http://localhost:8081/api/webservice/test3?wsdl

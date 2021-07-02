@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class IOtools {
 
      /**
-     * 将服务器文件存到压缩包中
+     * zipFile 将服务器文件存到压缩包中
      */
      public static void zipFile(List<File> files, ZipOutputStream outputStream) throws IOException, ServletException {
          try {

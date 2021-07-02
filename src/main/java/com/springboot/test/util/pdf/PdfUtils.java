@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Arrays;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.itextpdf.text.Anchor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -31,7 +28,6 @@ import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 
 public class PdfUtils {
-    private static Logger logger = LoggerFactory.getLogger(PdfUtils.class);
     // 定义全局的字体静态变量
     private static Font titlefont;
     private static Font headfont;
@@ -52,21 +48,9 @@ public class PdfUtils {
             e.printStackTrace();
         }
     }
-    // main测试
-    public static void main(String[] args) throws Exception {
-            logger.info("生成PDF开始！");
-            String storePath = "C:\\Users\\EDZ\\Desktop\\test\\pdf\\PDFDemo1.pdf";
-            // 1.生成 PDF文件
-            CreatePdf(storePath);
-            logger.info("生成PDF结束！");
-            // 2.合并 PDF文件
-            String[] files = {"C:\\Users\\EDZ\\Desktop\\test\\pdf\\PDFDemo1.pdf", "C:\\Users\\EDZ\\Desktop\\test\\pdf\\PDFDemo.pdf"};
-            String savepath = "C:\\Users\\EDZ\\Desktop\\test\\pdf\\combinePDFDemo.pdf";
-            mergePdfFiles(Arrays.asList(files), savepath);
-    }
  
     // main测试
-    public static void CreatePdf(String storePath) throws Exception {
+    public static void createPdf(String storePath) throws Exception {
         try {
             // 1.新建document对象
             Document document = newDocument(tableType); 
@@ -190,8 +174,6 @@ public class PdfUtils {
         document.add(image);
     }
  
- 
-/**------------------------创建表格单元格的方法start----------------------------*/
     /**
      * @description 创建单元格(指定字体)
      * @param value
@@ -316,10 +298,7 @@ public class PdfUtils {
         }
         return cell;
     }
-/**------------------------创建表格单元格的方法end----------------------------*/
- 
- 
-/**--------------------------创建表格的方法start------------------- ---------*/
+    
     /**
      * @description 创建默认列宽，指定列数、水平(居中、右、左)的表格
      * @param colNumber
@@ -367,7 +346,6 @@ public class PdfUtils {
         table.setSpacingBefore(20.0f);
         return table;
     }
-/**--------------------------创建表格的方法end------------------- ---------*/
  
     /** 
      * @description 合并原pdf为新文件

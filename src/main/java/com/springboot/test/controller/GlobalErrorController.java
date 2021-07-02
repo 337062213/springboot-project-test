@@ -1,6 +1,5 @@
 package com.springboot.test.controller;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
@@ -12,17 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController  
 public class GlobalErrorController implements ErrorController {  
   
-  @Value("${server.error.path:${error.path:/error}}")  
-  private String errorPath;   
-  
   @Override  
   public String getErrorPath() {  
-    return errorPath;  
+      return "error/error";  
   }   
   
   @RequestMapping("/admin/error")  
   public String error(HttpRequest request, Model model) {  
-    return "screen/error";  
+      return "error/error";  
   }
   
   @RequestMapping("/404")  

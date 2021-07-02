@@ -21,14 +21,4 @@
          MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
          myBatisGenerator.generate(null);
      }
-  
-     // 执行main方法以生成代码
-     public static void main(String[] args) {
-         try {
-             GeneratorSqlmap generatorSqlmap = new GeneratorSqlmap();
-             generatorSqlmap.generator();
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
-     }
  }

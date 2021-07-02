@@ -13,12 +13,12 @@ logging:
 # 文件上传下载配置
 file:
   dowmload:
-<<<<<<< HEAD
-    fileDirectory: "/src/main/resources/file/"
+    fileDirectory: "/src/main/resources/file/dowmload/"
   upload:
-    fileDirectory: "/src/main/resources/file/"
+    fileDirectory: "/src/main/resources/file/upload/"
   tempDirectory: "/src/main/resources/file/temp/"
 server:  port: 8081
+  context-path: /api
 # 数据库配置
 spring:
   jpa:
@@ -39,29 +39,3 @@ spring:
       enabled: true
                      # 单个文件最大上传大小  KB or MB 默认  1MB      max-file-size: 200MB
                      # 请求文件最大上传大小  KB or MB 默认  10MB         max-request-size: 200MB      
-            
-=======
-    fileDirectory: "/src/main/resources/file"
-  upload:
-    fileDirectory: "/src/main/resources/file"
-server:  port: 8081
-# 数据库配置
-spring:
-  jpa:
-    show-sql: true
-  datasource:
-    # 当前激活的数据源 默认two
-    active:
-    one:
-      jdbc-url: jdbc:postgresql://localhost:5432/postgres
-      driver-class-name: org.postgresql.Driver
-      username: ENC(bgycBQxsrtvJcyqyUmOeUixA2hZdCOVX)
-      password: ENC(9XNfyAmJJD6IfFnDg3nrsA==)     
-    two: 
-      jdbc-url: jdbc:sqlite:C:/Users/EDZ/sqlite3/database/user.db?date_string_format=yyyy-MM-dd HH:mm:ss
-      driver-class-name: org.sqlite.JDBC
-      username:
-      password:  webservices:    path: /test
-      
-      
->>>>>>> branch 'develop-1.x' of https://github.com/337062213/springboot-test-project.git

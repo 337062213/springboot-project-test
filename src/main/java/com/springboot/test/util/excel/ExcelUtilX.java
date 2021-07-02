@@ -12,7 +12,6 @@
  import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  import java.io.*;
  import java.lang.reflect.Field;
- import java.util.ArrayList;
  import java.util.List;
  import java.util.logging.Level;
  import java.util.logging.Logger;
@@ -225,18 +224,6 @@
          }
          
          return result;
-     }
-     
-     /**
-      *  @description main test
-      */
-     public static void main(String[] args) {
-         String  sheetName = "test";
-         String  title = "2018年度能源科技进步奖";
-         String[]  headers = {"测试标题列1","测试标题列2","测试标题列3","测试标题列4","测试标题列5","测试标题列6","测试标题列7","测试标题列8","测试标题列9"};
-         List<Object> list= new ArrayList<>();
-         export(sheetName,title,headers, list);
-         exportX(sheetName,title,headers);
      }
 
  }

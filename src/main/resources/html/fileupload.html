@@ -69,6 +69,25 @@
 				 alert("按 Enter");
 			}
 		};
+		function downLoad() {
+			let baseURL = "http://localhost:8081/";
+	        window.location.href = baseURL + "api/servlet/download2?filename=" + "2.txt";
+	    }
+		function downloadFile() {
+		  let baseURL = "http://localhost:8081/";
+		  var request = new XMLHttpRequest();
+		  request.responseType = "blob";//定义响应类型
+		  request.open("GET", baseURL + "api/servlet/download2?filename=" + "2.txt");
+		  request.onload = function () {
+			var url = window.URL.createObjectURL(this.response);
+			var a = document.createElement("a");
+			document.body.appendChild(a);
+			a.href = url;
+			a.download = "2.txt";
+			a.click();
+		  }
+		  request.send();
+		}
 	</script>
 </head>
 	<body>
@@ -87,19 +106,41 @@
 		<p style="display:inline"><span>显示当前时间:</span><span></span></p><p id="time" style="display:inline;margin-left:10px"></p>
 		<p style="display:inline;margin-left:10px">
 		<button type='button' onclick='pause()'>暂停</button><button type='button' onclick='start()'>开始</button></p>
-		<h2>http://localhost:8081/springboot/file/upload</h2>
-		<form action='http://localhost:8081/springboot/file/upload' method='post' enctype='multipart/form-data'>
-			<input type='file' name='file'>
-			<button type='submit'>上传</button>
-		</form>
-		<h2>http://localhost:8081/springboot/file/batch/upload</h2>
-		<form action='http://localhost:8081/springboot/file/batch/upload' method='post' enctype='multipart/form-data'>
+		<h2>http://localhost:8081/api/servlet/batch/upload1</h2>
+		<form action='http://localhost:8081/api/servlet/batch/upload1' method='post' enctype='multipart/form-data'>
 			上传文件1：<input type="file" name="file"><br/>
 			上传文件2：<input type="file" name="file"><br/>
 			<button type='submit'>上传</button>
 		</form>
-		<h2>http://localhost:8081/springboot/file/upload1</h2>
-		<form action='http://localhost:8081/springboot/file/upload1' method='post' enctype='multipart/form-data'>
+		<h2>http://localhost:8081/api/servlet/upload2</h2>
+		<form action='http://localhost:8081/api/servlet/upload2' method='post' enctype='multipart/form-data'>
+			上传文件3：<input type="file" name="file"><br/>
+			上传文件4：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		    <button onclick="downLoad()" id="btn">下载</button>
+			<button onclick="downloadFile()" id="btn">下载附件</button>
+            <iframe id="mainframe" style="float: left;width:100%;height:96%;" frameborder="0"  scrolling="auto"></iframe>
+		<h2>http://localhost:8081/api/servlet/upload3</h2>
+		<form action='http://localhost:8081/api/servlet/upload3' method='post' enctype='multipart/form-data'>
+			上传文件3：<input type="file" name="file"><br/>
+			上传文件4：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		<h2>http://localhost:8081/api/servlet/upload4</h2>
+		<form action='http://localhost:8081/api/servlet/upload4' method='post' enctype='multipart/form-data'>
+			上传文件3：<input type="file" name="file"><br/>
+			上传文件4：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		<h2>http://localhost:8081/api/servlet/upload5</h2>
+		<form action='http://localhost:8081/api/servlet/upload5' method='post' enctype='multipart/form-data'>
+			上传文件3：<input type="file" name="file"><br/>
+			上传文件4：<input type="file" name="file"><br/>
+			<button type='submit'>上传</button>
+		</form>
+		<h2>http://localhost:8081/api/servlet/upload6</h2>
+		<form action='http://localhost:8081/api/servlet/upload6' method='post' enctype='multipart/form-data'>
 			上传文件3：<input type="file" name="file"><br/>
 			上传文件4：<input type="file" name="file"><br/>
 			<button type='submit'>上传</button>

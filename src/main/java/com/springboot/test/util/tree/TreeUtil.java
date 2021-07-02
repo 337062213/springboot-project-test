@@ -78,43 +78,4 @@ public class TreeUtil {
 
     }
 
-    public static void main(String[] args) {
-        List<DefaultTree> treeTempList = new ArrayList<>();
-
-        DefaultTree temp;
-
-        for(int i=0; i<3; i++) {
-            temp = new DefaultTree();
-            temp.setId(i + "");
-            temp.setLabel("第一级");
-            treeTempList.add(temp);
-        }
-
-        for(int i=0; i<3; i++) {
-            temp = new DefaultTree();
-            temp.setId(0 + "" + i);
-            temp.setLabel("第二级");
-            temp.setPid(treeTempList.get(0).getId());
-            treeTempList.add(temp);
-        }
-
-        for(int i=0; i<3; i++) {
-            temp = new DefaultTree();
-            temp.setId(0 + "" + 0 + "" + i);
-            temp.setLabel("第三级");
-            temp.setPid(treeTempList.get(3).getId());
-            treeTempList.add(temp);
-        }
-
-        for(int i=0; i<3; i++) {
-            temp = new DefaultTree();
-            temp.setId(1 + "" + i);
-            temp.setLabel("第二级");
-            temp.setPid(treeTempList.get(1).getId());
-            treeTempList.add(temp);
-        }
-
-        System.out.println(TreeUtil.build(treeTempList, 0+""));
-    }
-
 }

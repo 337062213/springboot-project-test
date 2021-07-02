@@ -12,7 +12,6 @@
      private long end;
 
      /**
-      * 
       * @param in 源文件地址
       * @param out 目标文件地址
       * @param start 分段复制的开始位置
@@ -58,7 +57,6 @@
  public class ThreadsCopyFile {
 
      /**
-      * 
       * @param sourcePath 源文件路径
       * @param targetPath 目标文件路径
       * @param ThreadNums 设定的线程数
@@ -77,15 +75,5 @@
              new CopyFileThread(sourcePath, targetPath, i*segmentLength, (i+1)*segmentLength).start();
          }
          new CopyFileThread(sourcePath, targetPath, (ThreadNums-1)*segmentLength, fileLength).start();
-     }
-
-
-     public static void main(String[] args) throws IOException {
-         ThreadsCopyFile tcf = new ThreadsCopyFile();
-         System.out.println(DateUtils.getCurrentTime1());
-         String sourcePath = "C:\\Users\\EDZ\\Desktop\\test file\\抖音.mp4";
-         String targetPath = "C:\\Users\\EDZ\\Desktop\\tttt32452.mp4";
-         tcf.startCopy(sourcePath, targetPath,10);
-         System.out.println(DateUtils.getCurrentTime1());
      }
  }

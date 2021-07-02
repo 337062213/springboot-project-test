@@ -234,21 +234,5 @@
              return new BigFileReader(this.file,this.handle,this.charset,this.bufferSize,this.threadSize);
          }
      }
-     
-
-     public static void main(String[] args) {
-         BigFileReader.Builder builder = new BigFileReader.Builder("C:\\Users\\EDZ\\Desktop\\test\\json\\bigfile.json",new IHandle() {
-             
-             @Override
-             public void handle(String line) {
-                 System.out.println(line);
-             }
-         });
-         builder.withTreahdSize(10)
-                .withCharset("GBK")
-                .withBufferSize(1024*1024);
-         BigFileReader bigFileReader = builder.build();
-         bigFileReader.start();
-     }
          
  }

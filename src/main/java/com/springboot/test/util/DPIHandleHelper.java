@@ -13,15 +13,7 @@ import org.slf4j.LoggerFactory;
 public class DPIHandleHelper { 
 	
 	public static final Logger log = LoggerFactory.getLogger(DPIHandleHelper.class);
-  
-    public static void main(String[] args) {  
-        String path = "C:/Users/Administrator/Desktop/test/smaple-tiff.tiff"; 
-        String target = "C:/Users/Administrator/Desktop/test/test-5.tiff";
-        File file1 = new File(path); 
-        File file2 = new File(target);
-        handleDpi(file1,file2); 
-        System.out.println("success");
-    }  
+	
     public static void handleDpi(File file, File taget) {
     	long startTime = System.currentTimeMillis();
         try { 

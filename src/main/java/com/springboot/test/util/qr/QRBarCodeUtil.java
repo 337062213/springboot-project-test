@@ -4,9 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -263,26 +261,5 @@ public class QRBarCodeUtil {
             System.out.println("-----图片非二维码图片：" + url);
         }
         return resultStr;
-    }
- 
-    public static void main(String[] args) throws MalformedURLException {
-        
-        //生成二维码
-        //  要生成二维码的链接
-        String urlSource = "https://www.baidu.com";
-        //  指定路径：D:\User\Desktop\testQrcode
-        String path = FileSystemView.getFileSystemView().getHomeDirectory() + File.separator + "testQrcode";
-        File file = new File(path);
-        //  指定二维码图片名字
-        String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()) + ".jpg";
-        createCodeToFile(urlSource, file, fileName);
-        
-        //解析二维码
-        File localFile = new File("C:\\Users\\EDZ\\Desktop\\testQrcode\\20210421144951.jpg");
-        String localQRcodeContent = parseQRCodeByFile(localFile);
-        System.out.println(localFile + " 二维码内容：" + localQRcodeContent);
-        URL url = new URL("https://login.weixin.qq.com/qrcode/gfguvlNiDA==");
-        String netQRcodeContent = parseQRCodeByUrl(url);
-        System.out.println(url + " 二维码内容：" + netQRcodeContent);
     }
 }
