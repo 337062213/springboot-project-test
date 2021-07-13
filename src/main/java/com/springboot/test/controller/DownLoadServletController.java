@@ -132,7 +132,9 @@ public class DownLoadServletController extends HttpServlet {
          response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(realname, "UTF-8"));
          // 读取要下载的文件，保存到文件输入流
          FileInputStream in = new FileInputStream(file);
-         response.addHeader("Content-Length", "" + file.length());
+         String fileLength = String.valueOf(file.length());
+         response.addHeader("Content-Length", "" + fileLength);
+         response.setContentLengthLong(file.length());
          // 创建输出流
          OutputStream os = response.getOutputStream();
          // 设置缓存区

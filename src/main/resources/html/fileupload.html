@@ -3,47 +3,24 @@
 <head>
 	<meta charset="utf-8"> 
 	<title>文件上传和下载</title>
-	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<script type="text/javascript" src="js/base.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<script type="text/javascript" src="component/pop-window/pop-window.js"></script>
+	<script type="text/javascript" src="js/function.js"></script>
+	<script type="text/javascript" src="js/service.js"></script>
 	<script>
+	    var myVar = null;
 		/*用window.onload调用myfun()*/
-		window.onload=function myfun() {
+		window.onload=function onloadfunc() {
 			myVar = setInterval(function(){ myTimer() }, 1000);
+			add();
+		};
+        /*用window.onload调用myfun()*/
+		window.onunload=function onunloadfunc() {
+			confirm("you will leave this page!");
 		};		
 		let patt1=new RegExp("best");
 		document.write(patt1.exec("The best things in life are free"));
-		var number = Math.round(Math.random()*500 + 500);
-		var myVar = null, promptValue = "";
-		//有取消按钮
-		var confirmValue = confirm("Please confirm whether to continue or quit");
-		if(confirmValue){
-			alert(number);
-			if(number>=750){
-				alert("function");
-				//有取消按钮
-				confirm("Confirm");
-			    //弹出输入框
-				promptValue = prompt("prompt");
-				while("admin"!==promptValue && promptValue!==null){
-					promptValue = prompt("prompt");
-				}
-				myVar = setInterval(
-					function(){ myTimer() }, 1000
-				);
-			}else{
-				alert("arrow");
-				//有取消按钮
-				confirm("Confirm");
-			    //弹出输入框
-				promptValue = prompt("prompt");
-				while("admin"!==promptValue && promptValue!==null){
-				    promptValue = prompt("prompt");
-				}
-				myVar = setInterval(
-					() => { myTimer() }, 1000
-				);
-			}
-		}
 		function myTimer() {
 			var d = new Date();
 			var t = d.toLocaleTimeString();
@@ -51,14 +28,12 @@
 			document.getElementById("time").style.background= "bisque"; // 改变背景颜色
 		}
 		
-		function pause() {
-			clearInterval(myVar);
-			myVar = null;
+		function pause(name) {
+			clearInterval(name);
 		}
 		function start() {
 			myVar = setInterval(function(){ myTimer() }, 1000);
 		}
-		
 		document.onkeydown=function(event){
 			var e = event || window.event || arguments.callee.caller.arguments[0];
 			if(e && e.keyCode==27){ // 按 Esc 
@@ -69,25 +44,6 @@
 				 alert("按 Enter");
 			}
 		};
-		function downLoad() {
-			let baseURL = "http://localhost:8081/";
-	        window.location.href = baseURL + "api/servlet/download2?filename=" + "2.txt";
-	    }
-		function downloadFile() {
-		  let baseURL = "http://localhost:8081/";
-		  var request = new XMLHttpRequest();
-		  request.responseType = "blob";//定义响应类型
-		  request.open("GET", baseURL + "api/servlet/download2?filename=" + "2.txt");
-		  request.onload = function () {
-			var url = window.URL.createObjectURL(this.response);
-			var a = document.createElement("a");
-			document.body.appendChild(a);
-			a.href = url;
-			a.download = "2.txt";
-			a.click();
-		  }
-		  request.send();
-		}
 	</script>
 </head>
 	<body>
@@ -103,9 +59,26 @@
 			<a href="#">待到阴阳逆乱时，以我魔血染青天！</a>
 		</marquee>
 		</div>
+		<p>
+		  <span>&reg;</span><span>&Ntilde;</span><span>&reg;</span>
+		</p>
 		<p style="display:inline"><span>显示当前时间:</span><span></span></p><p id="time" style="display:inline;margin-left:10px"></p>
 		<p style="display:inline;margin-left:10px">
-		<button type='button' onclick='pause()'>暂停</button><button type='button' onclick='start()'>开始</button></p>
+		    <button type='button' onclick="pause(myVar)">暂停</button><button type='button' onclick='start()'>开始</button>
+		</p>
+		<p> 
+		    <button type='button' onclick="refreshPage()" >刷新页面</button>
+		    <button type='button' onclick="ShowDiv('MyDiv','fade')" >新增二级分类</button>
+			<button type='button' onclick="openNewWindow('./component/pop-window.html')" >新窗口</button>
+			<button type='button' onclick="openNewWindow('./component/icon.html')" >icon</button>
+			<button type='button' onclick="confirmWindow()" >confirm</button>
+		    <button type='button' onclick="openNewWindow('./component/HTML页面中JavaScript能获取到的各种屏幕大小信息 - 悠悠i - 博客园.html')" >屏幕大小信息</button>
+		</p>
+		<p>
+		   <!--_blank -- 在新窗口中掀开链接, _parent -- 在父窗体中翻开链接, _self -- 在今朝窗体打开链接,此为默认值, _top -- 在目前窗体打开链接，并改革目前的整个窗体(框架页)-->
+		   <a href="https://www.oschina.net/p/kubernetes" target="_blank" title="Kubernetes">Kubernetes</a>
+		   <a href="https://www.oschina.net/p/video-js?hmsr=aladdin1e1" target="_blank" title="video.js ">video.js </a>
+		</p>
 		<h2>http://localhost:8081/api/servlet/batch/upload1</h2>
 		<form action='http://localhost:8081/api/servlet/batch/upload1' method='post' enctype='multipart/form-data'>
 			上传文件1：<input type="file" name="file"><br/>
@@ -118,45 +91,32 @@
 			上传文件4：<input type="file" name="file"><br/>
 			<button type='submit'>上传</button>
 		</form>
+		<p>
 		    <button onclick="downLoad()" id="btn">下载</button>
 			<button onclick="downloadFile()" id="btn">下载附件</button>
-            <iframe id="mainframe" style="float: left;width:100%;height:96%;" frameborder="0"  scrolling="auto"></iframe>
+		</p>		    
 		<h2>http://localhost:8081/api/servlet/upload3</h2>
 		<form action='http://localhost:8081/api/servlet/upload3' method='post' enctype='multipart/form-data'>
 			上传文件3：<input type="file" name="file"><br/>
 			上传文件4：<input type="file" name="file"><br/>
 			<button type='submit'>上传</button>
 		</form>
-		<h2>http://localhost:8081/api/servlet/upload4</h2>
-		<form action='http://localhost:8081/api/servlet/upload4' method='post' enctype='multipart/form-data'>
-			上传文件3：<input type="file" name="file"><br/>
-			上传文件4：<input type="file" name="file"><br/>
-			<button type='submit'>上传</button>
-		</form>
-		<h2>http://localhost:8081/api/servlet/upload5</h2>
-		<form action='http://localhost:8081/api/servlet/upload5' method='post' enctype='multipart/form-data'>
-			上传文件3：<input type="file" name="file"><br/>
-			上传文件4：<input type="file" name="file"><br/>
-			<button type='submit'>上传</button>
-		</form>
-		<h2>http://localhost:8081/api/servlet/upload6</h2>
-		<form action='http://localhost:8081/api/servlet/upload6' method='post' enctype='multipart/form-data'>
-			上传文件3：<input type="file" name="file"><br/>
-			上传文件4：<input type="file" name="file"><br/>
-			<button type='submit'>上传</button>
-		</form>
-		<div class="login">
-			<div class="login-box" id="login-id">
-				<span class="caption">欢迎您注册网站会员，如果您已有账户，则可就在此<span style="font-style: blue;">登录</span></span>
-				<div class="login-text">
-					用&nbsp;户&nbsp;名：<input id="username" type="text" class="username" onblur="onUserNameBlur(this)"/> <span class="span1">用户名支持数字和字母，位数至少为四位</span><br>
-					设置密码: <input id="password" type="password" class="password" onblur="pwdonblur(this, document.getElementById('passwordss'))"/> <span class="span2">密码支持数字和字母，位数至少为四位</span><br>
-					确认密码: <input id="passwordss" type="password" class="passwordss" onblur="pwdsonblur(this,document.getElementById('password'))"/> <span class="span3">再次输入密码</span>
-					手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：<input type="text" class="tel"  onblur="telonblur(this)"/><span class="span4">请输入11位手机号码</span>
-					邮 &nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" class="email" onblur="emailonblur(this)"/><span class="span5">邮箱后面必须带有@号</span>
-					验&nbsp;证&nbsp;码 : <input type="text" class="yzm"/>  <button class="picyzm">获取验证码</button><span class="span6"></span>
-					<input type="button"  value="立即注册" class="zhuce"/>
-				</div>
+		
+		<div id="fade" class="black_overlay"></div>
+		<div id="MyDiv" class="white_content">
+			<div style="text-align: right; cursor: default; margin-top:10px;margin-bottom:10px;">
+				<span style="font-size: 16px; margin-right: 17px; color: #56BE2D; font-weight: 600;cursor:pointer;"  onclick="CloseDiv('MyDiv','fade')">关闭</span>
+			</div>
+			<div class="itempanel" style="    margin-left: 13%;">
+				<div class="floatleft title" style="text-align: left;">二级分类名称：</div>
+				<div class="floatleft editor" style="font-size:16px;height: 24px;line-height: 24px;"><input type="text" id="label" name="label" placeholder="请输入二级分类名称"/></div>
+				<div class="floatleft message"></div>
+				<div class="clear"></div>
+			</div>
+			<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3); margin-top: 39px;" width="90%" color=#ddd SIZE=2>
+			<div style="margin-bottom: 23px; margin-top: 23px; margin-left: 23%;">
+				<input type="button" class="greenbutton2" style="width: 123px;margin-left: 30px;" onclick="javasrcipt:goToAdd()" value="添加" style="width: 123px; margin-left: 20%; ">
+				<input type="button" class="greenbutton2" style="width: 123px;margin-left: 30px;" onclick="CloseDiv('MyDiv','fade')" value="取消" style="width: 123px; margin-left: 20%; ">
 			</div>
 		</div>
 	</body>

@@ -1,0 +1,140 @@
+[
+  {
+    "fieldH": 11.0,
+    "fieldName": "YJH",
+    "fieldW": 100.0,
+    "fieldX": 86.0,
+    "fieldY": 564.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "fieldH": 11.0,
+    "fieldName": "complete",
+    "fieldW": 100.0,
+    "fieldX": 288.0,
+    "fieldY": 564.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "fieldH": 11.0,
+    "fieldName": "YTJ",
+    "fieldW": 100.0,
+    "fieldX": 490.0,
+    "fieldY": 564.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+    {
+    "fieldH": 13.0,
+    "fieldName": "ReviewTime",
+    "fieldW": 100.0,
+    "fieldX": 700.0,
+    "fieldY": 563.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "fieldH": 12.0,
+    "fieldName": "JLDate",
+    "fieldW": 100.0,
+    "fieldX": 465.0,
+    "fieldY": 791.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "fieldH": 12.0,
+    "fieldName": "ApproveTime",
+    "fieldW": 100.0,
+    "fieldX": 465.0,
+    "fieldY": 791.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "endPage": -1,
+    "fieldH": 11.0,
+    "fieldName": "检测人审核",
+    "fieldW": 70.0,
+    "fieldX": 104.0,
+    "fieldY": 808.0,
+    "startPage": 1,
+    "type": 4
+  },
+  {
+    "endPage": -1,
+    "fieldH": 11.0,
+    "fieldName": "foot_reviewUserName",
+    "fieldW": 70.0,
+    "fieldX": 222.0,
+    "fieldY": 808.0,
+    "startPage": 1,
+    "type": 4
+  },
+  {
+    "endPage": -1,
+    "fieldH": 11.0,
+    "fieldName": "试验监理报告审核",
+    "fieldW": 70.0,
+    "fieldX": 340.0,
+    "fieldY": 791.0,
+    "startPage": 1,
+    "type": 4
+  },
+  {
+    "fieldH": 13.0,
+    "fieldName": "JL_Option",
+    "fieldW": 440.0,
+    "fieldX": 120.0,
+    "fieldY": 779.0,
+    "formParams": {
+      "font": "SimSong",
+      "fontSize": 10,
+      "multiline": true,
+      "textAlignment": "Center"
+    },
+    "type": 1
+  },
+  {
+    "endPage": -1,
+    "fieldH": 11.0,
+    "fieldName": "批准人签发",
+    "fieldW": 70.0,
+    "fieldX": 340.0,
+    "fieldY": 808.0,
+    "startPage": 1,
+    "type": 4
+  }
+]
